@@ -27,9 +27,25 @@
               }
             ],
             "styles": [
-              "src/styles.css"
+              "src/styles.css",
+              "public/assets/css/style.css",
+              "public/assets/css/all.min.css"
             ],
-            "scripts": [],
+            "scripts": [
+              "public/assets/js/analytics.js",
+              "public/assets/js/jquery.min.js",
+              "public/assets/js/gsap.min.js",
+              "public/assets/js/ScrollTrigger.min.js",
+              "public/assets/js/Flip.min.js",
+              "public/assets/js/three.min.js",
+              "public/assets/js/imagesloaded.pkgd.min.js",
+              "public/assets/js/smooth-scrollbar.js",
+              "public/assets/js/clapat.js",
+              "public/assets/js/plugins.js",
+              "public/assets/js/common.js",
+              "public/assets/js/contact.js",
+              "public/assets/js/scripts.js"
+            ],
             "server": "src/main.server.ts",
             "prerender": true,
             "ssr": {

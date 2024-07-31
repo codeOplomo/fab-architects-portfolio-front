@@ -7,322 +7,458 @@
 <!-- * * * * * * * to get started with your project! * * * * * * * -->
 <!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * -->
 
-<style>
-  :host {
-    --bright-blue: oklch(51.01% 0.274 263.83);
-    --electric-violet: oklch(53.18% 0.28 296.97);
-    --french-violet: oklch(47.66% 0.246 305.88);
-    --vivid-pink: oklch(69.02% 0.277 332.77);
-    --hot-red: oklch(61.42% 0.238 15.34);
-    --orange-red: oklch(63.32% 0.24 31.68);
-
-    --gray-900: oklch(19.37% 0.006 300.98);
-    --gray-700: oklch(36.98% 0.014 302.71);
-    --gray-400: oklch(70.9% 0.015 304.04);
-
-    --red-to-pink-to-purple-vertical-gradient: linear-gradient(
-      180deg,
-      var(--orange-red) 0%,
-      var(--vivid-pink) 50%,
-      var(--electric-violet) 100%
-    );
-
-    --red-to-pink-to-purple-horizontal-gradient: linear-gradient(
-      90deg,
-      var(--orange-red) 0%,
-      var(--vivid-pink) 50%,
-      var(--electric-violet) 100%
-    );
-
-    --pill-accent: var(--bright-blue);
-
-    font-family: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
-      Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji",
-      "Segoe UI Symbol";
-    box-sizing: border-box;
-    -webkit-font-smoothing: antialiased;
-    -moz-osx-font-smoothing: grayscale;
-  }
-
-  h1 {
-    font-size: 3.125rem;
-    color: var(--gray-900);
-    font-weight: 500;
-    line-height: 100%;
-    letter-spacing: -0.125rem;
-    margin: 0;
-    font-family: "Inter Tight", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
-      Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji",
-      "Segoe UI Symbol";
-  }
-
-  p {
-    margin: 0;
-    color: var(--gray-700);
-  }
-
-  main {
-    width: 100%;
-    min-height: 100%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    padding: 1rem;
-    box-sizing: inherit;
-    position: relative;
-  }
-
-  .angular-logo {
-    max-width: 9.2rem;
-  }
-
-  .content {
-    display: flex;
-    justify-content: space-around;
-    width: 100%;
-    max-width: 700px;
-    margin-bottom: 3rem;
-  }
-
-  .content h1 {
-    margin-top: 1.75rem;
-  }
-
-  .content p {
-    margin-top: 1.5rem;
-  }
-
-  .divider {
-    width: 1px;
-    background: var(--red-to-pink-to-purple-vertical-gradient);
-    margin-inline: 0.5rem;
-  }
-
-  .pill-group {
-    display: flex;
-    flex-direction: column;
-    align-items: start;
-    flex-wrap: wrap;
-    gap: 1.25rem;
-  }
-
-  .pill {
-    display: flex;
-    align-items: center;
-    --pill-accent: var(--bright-blue);
-    background: color-mix(in srgb, var(--pill-accent) 5%, transparent);
-    color: var(--pill-accent);
-    padding-inline: 0.75rem;
-    padding-block: 0.375rem;
-    border-radius: 2.75rem;
-    border: 0;
-    transition: background 0.3s ease;
-    font-family: var(--inter-font);
-    font-size: 0.875rem;
-    font-style: normal;
-    font-weight: 500;
-    line-height: 1.4rem;
-    letter-spacing: -0.00875rem;
-    text-decoration: none;
-  }
-
-  .pill:hover {
-    background: color-mix(in srgb, var(--pill-accent) 15%, transparent);
-  }
-
-  .pill-group .pill:nth-child(6n + 1) {
-    --pill-accent: var(--bright-blue);
-  }
-  .pill-group .pill:nth-child(6n + 2) {
-    --pill-accent: var(--french-violet);
-  }
-  .pill-group .pill:nth-child(6n + 3),
-  .pill-group .pill:nth-child(6n + 4),
-  .pill-group .pill:nth-child(6n + 5) {
-    --pill-accent: var(--hot-red);
-  }
-
-  .pill-group svg {
-    margin-inline-start: 0.25rem;
-  }
-
-  .social-links {
-    display: flex;
-    align-items: center;
-    gap: 0.73rem;
-    margin-top: 1.5rem;
-  }
-
-  .social-links path {
-    transition: fill 0.3s ease;
-    fill: var(--gray-400);
-  }
-
-  .social-links a:hover svg path {
-    fill: var(--gray-900);
-  }
-
-  @media screen and (max-width: 650px) {
-    .content {
-      flex-direction: column;
-      width: max-content;
-    }
-
-    .divider {
-      height: 1px;
-      width: 100%;
-      background: var(--red-to-pink-to-purple-horizontal-gradient);
-      margin-block: 1.5rem;
-    }
-  }
-</style>
-
-<main class="main">
-  <div class="content">
-    <div class="left-side">
-      <svg
-        xmlns="http://www.w3.org/2000/svg"
-        viewBox="0 0 982 239"
-        fill="none"
-        class="angular-logo"
-      >
-        <g clip-path="url(#a)">
-          <path
-            fill="url(#b)"
-            d="M388.676 191.625h30.849L363.31 31.828h-35.758l-56.215 159.797h30.848l13.174-39.356h60.061l13.256 39.356Zm-65.461-62.675 21.602-64.311h1.227l21.602 64.311h-44.431Zm126.831-7.527v70.202h-28.23V71.839h27.002v20.374h1.392c2.782-6.71 7.2-12.028 13.255-15.956 6.056-3.927 13.584-5.89 22.503-5.89 8.264 0 15.465 1.8 21.684 5.318 6.137 3.518 10.964 8.673 14.319 15.382 3.437 6.71 5.074 14.81 4.992 24.383v76.175h-28.23v-71.92c0-8.019-2.046-14.237-6.219-18.819-4.173-4.5-9.819-6.791-17.102-6.791-4.91 0-9.328 1.063-13.174 3.272-3.846 2.128-6.792 5.237-9.001 9.328-2.046 4.009-3.191 8.918-3.191 14.728ZM589.233 239c-10.147 0-18.82-1.391-26.103-4.091-7.282-2.7-13.092-6.382-17.511-10.964-4.418-4.582-7.528-9.655-9.164-15.219l25.448-6.136c1.145 2.372 2.782 4.663 4.991 6.954 2.209 2.291 5.155 4.255 8.837 5.81 3.683 1.554 8.428 2.291 14.074 2.291 8.019 0 14.647-1.964 19.884-5.81 5.237-3.845 7.856-10.227 7.856-19.064v-22.665h-1.391c-1.473 2.946-3.601 5.892-6.383 9.001-2.782 3.109-6.464 5.645-10.965 7.691-4.582 2.046-10.228 3.109-17.101 3.109-9.165 0-17.511-2.209-25.039-6.545-7.446-4.337-13.42-10.883-17.757-19.474-4.418-8.673-6.628-19.473-6.628-32.565 0-13.091 2.21-24.301 6.628-33.383 4.419-9.082 10.311-15.955 17.839-20.7 7.528-4.746 15.874-7.037 25.039-7.037 7.037 0 12.846 1.145 17.347 3.518 4.582 2.373 8.182 5.236 10.883 8.51 2.7 3.272 4.746 6.382 6.137 9.327h1.554v-19.8h27.821v121.749c0 10.228-2.454 18.737-7.364 25.447-4.91 6.709-11.538 11.7-20.048 15.055-8.509 3.355-18.165 4.991-28.884 4.991Zm.245-71.266c5.974 0 11.047-1.473 15.302-4.337 4.173-2.945 7.446-7.118 9.573-12.519 2.21-5.482 3.274-12.027 3.274-19.637 0-7.609-1.064-14.155-3.274-19.8-2.127-5.646-5.318-10.064-9.491-13.255-4.174-3.11-9.329-4.746-15.384-4.746s-11.537 1.636-15.792 4.91c-4.173 3.272-7.365 7.772-9.492 13.418-2.128 5.727-3.191 12.191-3.191 19.392 0 7.2 1.063 13.745 3.273 19.228 2.127 5.482 5.318 9.736 9.573 12.764 4.174 3.027 9.41 4.582 15.629 4.582Zm141.56-26.51V71.839h28.23v119.786h-27.412v-21.273h-1.227c-2.7 6.709-7.119 12.191-13.338 16.446-6.137 4.255-13.747 6.382-22.748 6.382-7.855 0-14.81-1.718-20.783-5.237-5.974-3.518-10.72-8.591-14.075-15.382-3.355-6.709-5.073-14.891-5.073-24.464V71.839h28.312v71.921c0 7.609 2.046 13.664 6.219 18.083 4.173 4.5 9.655 6.709 16.365 6.709 4.173 0 8.183-.982 12.111-3.028 3.927-2.045 7.118-5.072 9.655-9.082 2.537-4.091 3.764-9.164 3.764-15.218Zm65.707-109.395v159.796h-28.23V31.828h28.23Zm44.841 162.169c-7.61 0-14.402-1.391-20.457-4.091-6.055-2.7-10.883-6.791-14.32-12.109-3.518-5.319-5.237-11.946-5.237-19.801 0-6.791 1.228-12.355 3.765-16.773 2.536-4.419 5.891-7.937 10.228-10.637 4.337-2.618 9.164-4.664 14.647-6.055 5.4-1.391 11.046-2.373 16.856-3.027 7.037-.737 12.683-1.391 17.102-1.964 4.337-.573 7.528-1.555 9.574-2.782 1.963-1.309 3.027-3.273 3.027-5.973v-.491c0-5.891-1.718-10.391-5.237-13.664-3.518-3.191-8.51-4.828-15.056-4.828-6.955 0-12.356 1.473-16.447 4.5-4.009 3.028-6.71 6.546-8.183 10.719l-26.348-3.764c2.046-7.282 5.483-13.336 10.31-18.328 4.746-4.909 10.638-8.59 17.511-11.045 6.955-2.455 14.565-3.682 22.912-3.682 5.809 0 11.537.654 17.265 2.045s10.965 3.6 15.711 6.71c4.746 3.109 8.51 7.282 11.455 12.6 2.864 5.318 4.337 11.946 4.337 19.883v80.184h-27.166v-16.446h-.9c-1.719 3.355-4.092 6.464-7.201 9.328-3.109 2.864-6.955 5.237-11.619 6.955-4.828 1.718-10.229 2.536-16.529 2.536Zm7.364-20.701c5.646 0 10.556-1.145 14.729-3.354 4.173-2.291 7.364-5.237 9.655-9.001 2.292-3.763 3.355-7.854 3.355-12.273v-14.155c-.9.737-2.373 1.391-4.5 2.046-2.128.654-4.419 1.145-7.037 1.636-2.619.491-5.155.9-7.692 1.227-2.537.328-4.746.655-6.628.901-4.173.572-8.019 1.472-11.292 2.781-3.355 1.31-5.973 3.11-7.855 5.401-1.964 2.291-2.864 5.318-2.864 8.918 0 5.237 1.882 9.164 5.728 11.782 3.682 2.782 8.51 4.091 14.401 4.091Zm64.643 18.328V71.839h27.412v19.965h1.227c2.21-6.955 5.974-12.274 11.292-16.038 5.319-3.763 11.456-5.645 18.329-5.645 1.555 0 3.355.082 5.237.163 1.964.164 3.601.328 4.91.573v25.938c-1.227-.41-3.109-.819-5.646-1.146a58.814 58.814 0 0 0-7.446-.49c-5.155 0-9.738 1.145-13.829 3.354-4.091 2.209-7.282 5.236-9.655 9.164-2.373 3.927-3.519 8.427-3.519 13.5v70.448h-28.312ZM222.077 39.192l-8.019 125.923L137.387 0l84.69 39.192Zm-53.105 162.825-57.933 33.056-57.934-33.056 11.783-28.556h92.301l11.783 28.556ZM111.039 62.675l30.357 73.803H80.681l30.358-73.803ZM7.937 165.115 0 39.192 84.69 0 7.937 165.115Z"
-          />
-          <path
-            fill="url(#c)"
-            d="M388.676 191.625h30.849L363.31 31.828h-35.758l-56.215 159.797h30.848l13.174-39.356h60.061l13.256 39.356Zm-65.461-62.675 21.602-64.311h1.227l21.602 64.311h-44.431Zm126.831-7.527v70.202h-28.23V71.839h27.002v20.374h1.392c2.782-6.71 7.2-12.028 13.255-15.956 6.056-3.927 13.584-5.89 22.503-5.89 8.264 0 15.465 1.8 21.684 5.318 6.137 3.518 10.964 8.673 14.319 15.382 3.437 6.71 5.074 14.81 4.992 24.383v76.175h-28.23v-71.92c0-8.019-2.046-14.237-6.219-18.819-4.173-4.5-9.819-6.791-17.102-6.791-4.91 0-9.328 1.063-13.174 3.272-3.846 2.128-6.792 5.237-9.001 9.328-2.046 4.009-3.191 8.918-3.191 14.728ZM589.233 239c-10.147 0-18.82-1.391-26.103-4.091-7.282-2.7-13.092-6.382-17.511-10.964-4.418-4.582-7.528-9.655-9.164-15.219l25.448-6.136c1.145 2.372 2.782 4.663 4.991 6.954 2.209 2.291 5.155 4.255 8.837 5.81 3.683 1.554 8.428 2.291 14.074 2.291 8.019 0 14.647-1.964 19.884-5.81 5.237-3.845 7.856-10.227 7.856-19.064v-22.665h-1.391c-1.473 2.946-3.601 5.892-6.383 9.001-2.782 3.109-6.464 5.645-10.965 7.691-4.582 2.046-10.228 3.109-17.101 3.109-9.165 0-17.511-2.209-25.039-6.545-7.446-4.337-13.42-10.883-17.757-19.474-4.418-8.673-6.628-19.473-6.628-32.565 0-13.091 2.21-24.301 6.628-33.383 4.419-9.082 10.311-15.955 17.839-20.7 7.528-4.746 15.874-7.037 25.039-7.037 7.037 0 12.846 1.145 17.347 3.518 4.582 2.373 8.182 5.236 10.883 8.51 2.7 3.272 4.746 6.382 6.137 9.327h1.554v-19.8h27.821v121.749c0 10.228-2.454 18.737-7.364 25.447-4.91 6.709-11.538 11.7-20.048 15.055-8.509 3.355-18.165 4.991-28.884 4.991Zm.245-71.266c5.974 0 11.047-1.473 15.302-4.337 4.173-2.945 7.446-7.118 9.573-12.519 2.21-5.482 3.274-12.027 3.274-19.637 0-7.609-1.064-14.155-3.274-19.8-2.127-5.646-5.318-10.064-9.491-13.255-4.174-3.11-9.329-4.746-15.384-4.746s-11.537 1.636-15.792 4.91c-4.173 3.272-7.365 7.772-9.492 13.418-2.128 5.727-3.191 12.191-3.191 19.392 0 7.2 1.063 13.745 3.273 19.228 2.127 5.482 5.318 9.736 9.573 12.764 4.174 3.027 9.41 4.582 15.629 4.582Zm141.56-26.51V71.839h28.23v119.786h-27.412v-21.273h-1.227c-2.7 6.709-7.119 12.191-13.338 16.446-6.137 4.255-13.747 6.382-22.748 6.382-7.855 0-14.81-1.718-20.783-5.237-5.974-3.518-10.72-8.591-14.075-15.382-3.355-6.709-5.073-14.891-5.073-24.464V71.839h28.312v71.921c0 7.609 2.046 13.664 6.219 18.083 4.173 4.5 9.655 6.709 16.365 6.709 4.173 0 8.183-.982 12.111-3.028 3.927-2.045 7.118-5.072 9.655-9.082 2.537-4.091 3.764-9.164 3.764-15.218Zm65.707-109.395v159.796h-28.23V31.828h28.23Zm44.841 162.169c-7.61 0-14.402-1.391-20.457-4.091-6.055-2.7-10.883-6.791-14.32-12.109-3.518-5.319-5.237-11.946-5.237-19.801 0-6.791 1.228-12.355 3.765-16.773 2.536-4.419 5.891-7.937 10.228-10.637 4.337-2.618 9.164-4.664 14.647-6.055 5.4-1.391 11.046-2.373 16.856-3.027 7.037-.737 12.683-1.391 17.102-1.964 4.337-.573 7.528-1.555 9.574-2.782 1.963-1.309 3.027-3.273 3.027-5.973v-.491c0-5.891-1.718-10.391-5.237-13.664-3.518-3.191-8.51-4.828-15.056-4.828-6.955 0-12.356 1.473-16.447 4.5-4.009 3.028-6.71 6.546-8.183 10.719l-26.348-3.764c2.046-7.282 5.483-13.336 10.31-18.328 4.746-4.909 10.638-8.59 17.511-11.045 6.955-2.455 14.565-3.682 22.912-3.682 5.809 0 11.537.654 17.265 2.045s10.965 3.6 15.711 6.71c4.746 3.109 8.51 7.282 11.455 12.6 2.864 5.318 4.337 11.946 4.337 19.883v80.184h-27.166v-16.446h-.9c-1.719 3.355-4.092 6.464-7.201 9.328-3.109 2.864-6.955 5.237-11.619 6.955-4.828 1.718-10.229 2.536-16.529 2.536Zm7.364-20.701c5.646 0 10.556-1.145 14.729-3.354 4.173-2.291 7.364-5.237 9.655-9.001 2.292-3.763 3.355-7.854 3.355-12.273v-14.155c-.9.737-2.373 1.391-4.5 2.046-2.128.654-4.419 1.145-7.037 1.636-2.619.491-5.155.9-7.692 1.227-2.537.328-4.746.655-6.628.901-4.173.572-8.019 1.472-11.292 2.781-3.355 1.31-5.973 3.11-7.855 5.401-1.964 2.291-2.864 5.318-2.864 8.918 0 5.237 1.882 9.164 5.728 11.782 3.682 2.782 8.51 4.091 14.401 4.091Zm64.643 18.328V71.839h27.412v19.965h1.227c2.21-6.955 5.974-12.274 11.292-16.038 5.319-3.763 11.456-5.645 18.329-5.645 1.555 0 3.355.082 5.237.163 1.964.164 3.601.328 4.91.573v25.938c-1.227-.41-3.109-.819-5.646-1.146a58.814 58.814 0 0 0-7.446-.49c-5.155 0-9.738 1.145-13.829 3.354-4.091 2.209-7.282 5.236-9.655 9.164-2.373 3.927-3.519 8.427-3.519 13.5v70.448h-28.312ZM222.077 39.192l-8.019 125.923L137.387 0l84.69 39.192Zm-53.105 162.825-57.933 33.056-57.934-33.056 11.783-28.556h92.301l11.783 28.556ZM111.039 62.675l30.357 73.803H80.681l30.358-73.803ZM7.937 165.115 0 39.192 84.69 0 7.937 165.115Z"
-          />
-        </g>
-        <defs>
-          <radialGradient
-            id="c"
-            cx="0"
-            cy="0"
-            r="1"
-            gradientTransform="rotate(118.122 171.182 60.81) scale(205.794)"
-            gradientUnits="userSpaceOnUse"
-          >
-            <stop stop-color="#FF41F8" />
-            <stop offset=".707" stop-color="#FF41F8" stop-opacity=".5" />
-            <stop offset="1" stop-color="#FF41F8" stop-opacity="0" />
-          </radialGradient>
-          <linearGradient
-            id="b"
-            x1="0"
-            x2="982"
-            y1="192"
-            y2="192"
-            gradientUnits="userSpaceOnUse"
-          >
-            <stop stop-color="#F0060B" />
-            <stop offset="0" stop-color="#F0070C" />
-            <stop offset=".526" stop-color="#CC26D5" />
-            <stop offset="1" stop-color="#7702FF" />
-          </linearGradient>
-          <clipPath id="a"><path fill="#fff" d="M0 0h982v239H0z" /></clipPath>
-        </defs>
-      </svg>
-      <h1>Hello, {{ title }}</h1>
-      <p>Congratulations! Your app is running. 🎉</p>
-    </div>
-    <div class="divider" role="separator" aria-label="Divider"></div>
-    <div class="right-side">
-      <div class="pill-group">
-        @for (item of [
-          { title: 'Explore the Docs', link: 'https://angular.dev' },
-          { title: 'Learn with Tutorials', link: 'https://angular.dev/tutorials' },
-          { title: 'CLI Docs', link: 'https://angular.dev/tools/cli' },
-          { title: 'Angular Language Service', link: 'https://angular.dev/tools/language-service' },
-          { title: 'Angular DevTools', link: 'https://angular.dev/tools/devtools' },
-        ]; track item.title) {
-          <a
-            class="pill"
-            [href]="item.link"
-            target="_blank"
-            rel="noopener"
-          >
-            <span>{{ item.title }}</span>
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              height="14"
-              viewBox="0 -960 960 960"
-              width="14"
-              fill="currentColor"
-            >
-              <path
-                d="M200-120q-33 0-56.5-23.5T120-200v-560q0-33 23.5-56.5T200-840h280v80H200v560h560v-280h80v280q0 33-23.5 56.5T760-120H200Zm188-212-56-56 372-372H560v-80h280v280h-80v-144L388-332Z"
-              />
-            </svg>
-          </a>
-        }
+  
+<main>		
+  <!-- Preloader -->
+  <div class="preloader-wrap" data-centerline="Loading">
+      <div class="outer">
+          <div class="inner">                    
+              <div class="trackbar">
+                <div class="preloader-intro">
+                    <span>Loading</span>
+                  </div>
+                  <div class="loadbar"></div>
+                  <div class="percentage-wrapper"><div class="percentage" id="precent"></div></div>
+              </div>
+              
+              <div class="percentage-intro">Please wait, content is loading</div>                     
+          </div>
       </div>
-      <div class="social-links">
-        <a
-          href="https://github.com/angular/angular"
-          aria-label="Github"
-          target="_blank"
-          rel="noopener"
-        >
-          <svg
-            width="25"
-            height="24"
-            viewBox="0 0 25 24"
-            fill="none"
-            xmlns="http://www.w3.org/2000/svg"
-            alt="Github"
-          >
-            <path
-              d="M12.3047 0C5.50634 0 0 5.50942 0 12.3047C0 17.7423 3.52529 22.3535 8.41332 23.9787C9.02856 24.0946 9.25414 23.7142 9.25414 23.3871C9.25414 23.0949 9.24389 22.3207 9.23876 21.2953C5.81601 22.0377 5.09414 19.6444 5.09414 19.6444C4.53427 18.2243 3.72524 17.8449 3.72524 17.8449C2.61064 17.082 3.81137 17.0973 3.81137 17.0973C5.04697 17.1835 5.69604 18.3647 5.69604 18.3647C6.79321 20.2463 8.57636 19.7029 9.27978 19.3881C9.39052 18.5924 9.70736 18.0499 10.0591 17.7423C7.32641 17.4347 4.45429 16.3765 4.45429 11.6618C4.45429 10.3185 4.9311 9.22133 5.72065 8.36C5.58222 8.04931 5.16694 6.79833 5.82831 5.10337C5.82831 5.10337 6.85883 4.77319 9.2121 6.36459C10.1965 6.09082 11.2424 5.95546 12.2883 5.94931C13.3342 5.95546 14.3801 6.09082 15.3644 6.36459C17.7023 4.77319 18.7328 5.10337 18.7328 5.10337C19.3942 6.79833 18.9789 8.04931 18.8559 8.36C19.6403 9.22133 20.1171 10.3185 20.1171 11.6618C20.1171 16.3888 17.2409 17.4296 14.5031 17.7321C14.9338 18.1012 15.3337 18.8559 15.3337 20.0084C15.3337 21.6552 15.3183 22.978 15.3183 23.3779C15.3183 23.7009 15.5336 24.0854 16.1642 23.9623C21.0871 22.3484 24.6094 17.7341 24.6094 12.3047C24.6094 5.50942 19.0999 0 12.3047 0Z"
-            />
-          </svg>
-        </a>
-        <a
-          href="https://twitter.com/angular"
-          aria-label="Twitter"
-          target="_blank"
-          rel="noopener"
-        >
-          <svg
-            width="24"
-            height="24"
-            viewBox="0 0 24 24"
-            fill="none"
-            xmlns="http://www.w3.org/2000/svg"
-            alt="Twitter"
-          >
-            <path
-              d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"
-            />
-          </svg>
-        </a>
-        <a
-          href="https://www.youtube.com/channel/UCbn1OgGei-DV7aSRo_HaAiw"
-          aria-label="Youtube"
-          target="_blank"
-          rel="noopener"
-        >
-          <svg
-            width="29"
-            height="20"
-            viewBox="0 0 29 20"
-            fill="none"
-            xmlns="http://www.w3.org/2000/svg"
-            alt="Youtube"
-          >
-            <path
-              fill-rule="evenodd"
-              clip-rule="evenodd"
-              d="M27.4896 1.52422C27.9301 1.96749 28.2463 2.51866 28.4068 3.12258C29.0004 5.35161 29.0004 10 29.0004 10C29.0004 10 29.0004 14.6484 28.4068 16.8774C28.2463 17.4813 27.9301 18.0325 27.4896 18.4758C27.0492 18.9191 26.5 19.2389 25.8972 19.4032C23.6778 20 14.8068 20 14.8068 20C14.8068 20 5.93586 20 3.71651 19.4032C3.11363 19.2389 2.56449 18.9191 2.12405 18.4758C1.68361 18.0325 1.36732 17.4813 1.20683 16.8774C0.613281 14.6484 0.613281 10 0.613281 10C0.613281 10 0.613281 5.35161 1.20683 3.12258C1.36732 2.51866 1.68361 1.96749 2.12405 1.52422C2.56449 1.08095 3.11363 0.76113 3.71651 0.596774C5.93586 0 14.8068 0 14.8068 0C14.8068 0 23.6778 0 25.8972 0.596774C26.5 0.76113 27.0492 1.08095 27.4896 1.52422ZM19.3229 10L11.9036 5.77905V14.221L19.3229 10Z"
-            />
-          </svg>
-        </a>
-      </div>
-    </div>
   </div>
+  <!--/Preloader -->     
+  
+  <div class="cd-index cd-main-content">
+
+  <!-- Page Content -->
+  <div id="clapat-page-content" class="light-content" data-bgcolor="#0c0c0c">
+      
+      <!-- Header -->
+      <header class="fullscreen-menu invert-header" data-menucolor="#0c0c0c">
+          <div id="header-container">
+          
+          
+          <!-- Logo -->
+          <div id="logo" class="hide-ball">
+              <a class="ajax-link" data-type="page-transition" href="index.html">
+                  <img class="black-logo" src="assets/images/logo.png" alt="ClaPat Logo">
+                  <img class="white-logo" src="assets/images/logo-white.png" alt="ClaPat Logo">
+              </a>
+          </div>
+          <!--/Logo -->
+                      
+          
+          <!-- Navigation -->
+          <nav> 
+            <div class="nav-height">
+                  <div class="outer">
+                      <div class="inner">           
+                          <ul data-breakpoint="10025" class="flexnav">
+                              <li class="link menu-timeline"><a class="" href="#"><div class="before-span"><span data-hover="Portfolio">Portfolio</span></div></a>
+                                  <ul>
+                                      <li><a class="ajax-link active" href="index.html" data-type="page-transition">Overlapping Gallery</a></li>
+                                      <li><a class="ajax-link" href="index-showcase-grid.html" data-type="page-transition">Portfolio Grid</a></li>
+                                      <li><a class="ajax-link" href="index-showcase-gallery.html" data-type="page-transition">Archive Gallery</a></li> 
+                                  </ul>
+                              </li>
+                              <li class="link menu-timeline"><a class="ajax-link" data-type="page-transition" href="about.html"><div class="before-span"><span data-hover="About">About</span></div></a></li>
+                              <li class="link menu-timeline"><a class="ajax-link" data-type="page-transition" href="contact.html"><div class="before-span"><span data-hover="Contact">Contact</span></div></a></li>
+                              <li class="link menu-timeline"><a class="" href="#"><div class="before-span"><span data-hover="More">More</span></div></a>
+                                  <ul>
+                                      <li><a class="ajax-link" href="typography.html" data-type="page-transition">Typography</a></li>                                         
+                                      <li><a class="ajax-link" href="multimedia.html" data-type="page-transition">Multimedia</a></li>
+                                      <li><a class="ajax-link" href="shortcodes.html" data-type="page-transition">Shortcodes</a></li>
+                                  </ul>
+                              </li>
+                              <li class="link menu-timeline">
+                                  <a class="buy-template" href="https://themeforest.net/item/montoya-creative-portfolio-template/50511291" target="_blank">
+                                      <div class="before-span"><span data-hover="Get Montoya Website">Get Montoya Website</span></div>
+                                  </a>
+                              </li>
+                          </ul>            
+                      </div>
+                  </div> 
+              </div>          
+          </nav>
+          <!--/Navigation -->
+          
+          
+          <!-- Menu Burger -->
+          <div class="button-wrap right menu burger-lines">
+              <div class="icon-wrap parallax-wrap">
+                  <div class="button-icon parallax-element">
+                      <div id="burger-wrapper">
+                          <div id="menu-burger">
+                              <span></span>
+                              <span></span>
+                              <span></span>
+                          </div>
+                      </div>
+                  </div>
+              </div>
+              <div class="button-text sticky right"><span data-hover="Menu">Menu</span></div> 
+          </div>
+          <!--/Menu Burger -->
+      
+          </div>
+      </header>
+      <!--/Header -->
+      
+      
+      
+      <!-- Content Scroll -->
+      <div id="content-scroll">
+      
+      
+          <!-- Main -->
+          <div id="main">
+          
+              <!-- Hero Section -->
+              <div id="hero">
+                  <div id="hero-styles">
+                      <div id="hero-caption" class="content-full-width parallax-scroll-caption text-align-center height-title">
+                          <div class="inner">                                    
+                              <h1 class="hero-title caption-timeline primary-font-title"><span>Montoya</span></h1>
+                              <div class="hero-subtitle caption-timeline">
+                                <span>WE ARE A CREATIVE STUDIO, SPECIALIZED IN STRATEGY, BRANDING <br class="destroy"> DESIGN, AND DEVELOPMENT. OUR WORK IS ALWAYS AT THE INTERSECTION <br class="destroy"> OF DESIGN AND TECHNOLOGY.</span>
+                              </div>                                   
+                          </div>
+                      </div>
+                      <div id="hero-footer">
+                        <div class="hero-footer-left">
+                            <div class="button-wrap right scroll-down">
+                                  <div class="icon-wrap parallax-wrap">
+                                      <div class="button-icon parallax-element">
+                                          <i class="fa-solid fa-angle-down"></i>
+                                      </div>
+                                  </div>
+                                  <div class="button-text sticky right"><span data-hover="Scroll to Explore">Scroll to Explore</span></div> 
+                              </div>
+                          </div>
+                          <div class="hero-footer-right">
+                      <div id="info-text">Featured Projects</div>
+                          </div>
+                      </div>                                  
+                  </div>
+              </div>                      
+              <!--/Hero Section -->
+              
+              
+              <!-- Main Content -->
+              <div id="main-content">
+                  <!-- Main Page Content -->
+                  <div id="main-page-content" class="content-full-width">                            
+                      
+                      <!-- Row -->
+                      <div class="content-row full text-align-center row_padding_left row_padding_right dark-section" data-bgcolor="#0c0c0c">
+                          
+                          <div id="itemsWrapperLinks">                               
+                            <div id="itemsWrapper" class="webgl-fitthumbs fx-one"> 
+                          
+                                  <div class="overlapping-gallery">
+                                  
+                                      <div class="overlapping-image">
+                                          <div class="overlapping-image-inner trigger-item" data-centerline="OPEN">                                                    
+                                              <div class="img-mask">
+                                                  <a class="slide-link" data-type="page-transition" href="project01.html"></a>
+                                                  <div class="section-image trigger-item-link">
+                                                      <img src="assets/images/01hero.jpg" class="item-image grid__item-img" alt="">
+                                                  </div>                                                
+                                                  <img src="assets/images/01hero.jpg" class="grid__item-img grid__item-img--large" alt="">                              
+                                              </div>
+                                              <div class="slide-caption trigger-item-link-secondary">
+                                                  <div class="slide-title primary-font-title"><span>White Liners</span></div>
+                                                  <div class="slide-date"><span>2024</span></div>
+                                                  <div class="slide-cat"><span>Photography</span></div>                                           
+                                              </div>
+                                          </div>
+                                      </div>
+                                      
+                                      <div class="overlapping-image">
+                                          <div class="overlapping-image-inner trigger-item" data-centerline="OPEN">                                                    
+                                              <div class="img-mask">
+                                                  <a class="slide-link" data-type="page-transition" href="project02.html"></a>
+                                                  <div class="section-image trigger-item-link">
+                                                      <img src="assets/images/02hero.jpg" class="item-image grid__item-img" alt="">
+                                                  </div>                                                
+                                                  <img src="assets/images/02hero.jpg" class="grid__item-img grid__item-img--large" alt="">                              
+                                              </div>
+                                              <div class="slide-caption trigger-item-link-secondary">
+                                                  <div class="slide-title primary-font-title"><span>Green Audio</span></div>                                                    
+                                                  <div class="slide-date"><span>2024</span></div>
+                                                  <div class="slide-cat"><span>Photography</span></div>                                      
+                                              </div>
+                                          </div>
+                                      </div>
+                                      
+                                      <div class="overlapping-image">
+                                          <div class="overlapping-image-inner trigger-item" data-centerline="OPEN">                                                    
+                                              <div class="img-mask">
+                                                  <a class="slide-link" data-type="page-transition" href="project03.html"></a>
+                                                  <div class="section-image trigger-item-link">
+                                                      <img src="assets/images/03hero.jpg" class="item-image grid__item-img" alt="">
+                                                  </div>                                                
+                                                  <img src="assets/images/03hero.jpg" class="grid__item-img grid__item-img--large" alt="">                              
+                                              </div>
+                                              <div class="slide-caption trigger-item-link-secondary">
+                                                  <div class="slide-title primary-font-title"><span>Nanotech</span></div>                                                    
+                                                  <div class="slide-date"><span>2024</span></div>
+                                                  <div class="slide-cat"><span>Branding</span></div>                                           
+                                              </div>
+                                          </div>
+                                      </div>
+                                      
+                                      <div class="overlapping-image">
+                                          <div class="overlapping-image-inner trigger-item change-header" data-centerline="OPEN">                                                    
+                                              <div class="img-mask">
+                                                  <a class="slide-link" data-type="page-transition" href="project04.html"></a>
+                                                  <div class="section-image trigger-item-link">
+                                                      <img src="assets/images/04hero.jpg" class="item-image grid__item-img" alt="">
+                                                      <div class="hero-video-wrapper">
+                                                          <video loop="" muted="" class="bgvid">
+                                                              <source src="media/04hero.mp4" type="video/mp4">
+                                                          </video>
+                                                      </div>
+                                                  </div>                                                
+                                                  <img src="assets/images/04hero.jpg" class="grid__item-img grid__item-img--large" alt="">                              
+                                              </div>
+                                              <div class="slide-caption trigger-item-link-secondary">
+                                                  <div class="slide-title primary-font-title"><span>Cool Dude</span></div>
+                                                  <div class="slide-date"><span>2024</span></div>
+                                                  <div class="slide-cat"><span>Video Production</span></div>                                         
+                                              </div>
+                                          </div>
+                                      </div>
+                                      
+                                      <div class="overlapping-image">
+                                          <div class="overlapping-image-inner trigger-item" data-centerline="OPEN">                                                    
+                                              <div class="img-mask">
+                                                  <a class="slide-link" data-type="page-transition" href="project05.html"></a>
+                                                  <div class="section-image trigger-item-link">
+                                                      <img src="assets/images/05hero.jpg" class="item-image grid__item-img" alt="">
+                                                  </div>                                                
+                                                  <img src="assets/images/05hero.jpg" class="grid__item-img grid__item-img--large" alt="">                              
+                                              </div>
+                                              <div class="slide-caption trigger-item-link-secondary">
+                                                  <div class="slide-title primary-font-title"><span>Sphere Digital</span></div>                                                    
+                                                  <div class="slide-date"><span>2024</span></div>
+                                                  <div class="slide-cat"><span>Graphic Design</span></div>                                           
+                                              </div>
+                                          </div>
+                                      </div>
+                                      
+                                  </div>
+                                  
+                              </div> 
+                          </div>
+                          
+                          <hr>
+                          
+                          <p>
+                              <span class="has-opacity">CRAFTING WEBSITES WHERE THE ELEGANCE</span>
+                              <br class="destroy">
+                              <span class="has-opacity">OF DESIGN INTERSECTS WITH THE SCIENCE OF SELLING PRODUCTS.</span>
+                          </p>
+                                                        
+                          <div class="button-box text-align-center has-animation fadeout-element">             
+                              <div class="clapat-button-wrap parallax-wrap hide-ball">
+                                  <div class="clapat-button parallax-element">
+                                      <div class="button-border outline rounded parallax-element-second">
+                                          <a class="ajax-link" href="index-showcase-grid.html" data-type="page-transition">
+                                              <span data-hover="See All Works">See All Works</span>
+                                           </a>
+                                       </div>
+                                  </div>
+                              </div> 
+                          </div>
+                           
+                          
+                      </div> 
+                      <!--/Row -->
+                      
+                      
+                      <!-- Row -->
+                      <div class="content-row full row_padding_left row_padding_right dark-section fadeout-element" data-bgcolor="#0c0c0c">
+                      
+                          <div class="list-rotator-wrapper">                                
+                            <div class="list-rotator-title">OUR SKILLS COVER</div>                  
+                              <div class="list-rotator-pin">                                    
+                                  <ul class="list-rotator primary-font-title">
+                                      <li class="">Web Design</li>
+                                      <li>Mobile App Development</li>
+                                      <li>UI/UX Design</li>
+                                      <li>SEO Optimization</li>
+                                      <li>Social Media Management</li>
+                                      <li>Data Analytics</li>
+                                      <li>Content Creation</li>
+                                  </ul>                                        
+                              </div>                            
+                          </div>
+                          
+                      </div> 
+                      <!--/Row -->
+                      
+                      
+                      <!-- Row -->
+                      <div class="content-row dark-section text-align-center" data-bgcolor="#0c0c0c">
+                     
+                         <div class="one_third has-animation" data-delay="100">
+                              
+                              <div class="box-icon-wrapper block-boxes">
+                                  <div class="box-icon">
+                                      <i class="fa fa-paper-plane fa-2x" aria-hidden="true"></i>
+                                  </div>
+                                <div class="box-icon-content">
+                                      <h6 class="no-margins"><a href="mailto:office@montoya.com" class="link"><span>officemontoya.com</span></a></h6>
+                                      <p>Email</p>
+                                  </div>
+                              </div> 
+                                                     
+                          </div>
+                          
+                          <div class="one_third has-animation" data-delay="200">
+                              
+                              <div class="box-icon-wrapper block-boxes">
+                                  <div class="box-icon">
+                                      <i class="fa fa-map-marker fa-2x" aria-hidden="true"></i>
+                                  </div>
+                                <div class="box-icon-content">
+                                      <h6 class="no-margins">35 M Str, New York, USA</h6>
+                                      <p>Address</p>
+                                  </div>
+                              </div>
+                                                      
+                          </div>
+                          
+                          <div class=" one_third last has-animation" data-delay="300">
+                              
+                              <div class="box-icon-wrapper block-boxes">
+                                  <div class="box-icon">
+                                      <i class="fa fa-phone fa-2x" aria-hidden="true"></i>
+                                  </div>
+                                <div class="box-icon-content">
+                                      <h6 class="no-margins">0040 (7763) 574-8901</h6>
+                                      <p>Phone</p>
+                                  </div>
+                              </div>
+                              
+                          </div> 
+                                                 
+                     </div> 
+                     <!--/Row -->
+                      
+                      
+                      
+                  
+                  </div>
+                  <!--/Main Page Content -->
+                  
+                  
+                  <!-- Page Navigation --> 
+                  <div id="page-nav">
+                      <div class="page-nav-wrap">
+                          <div class="page-nav-caption content-full-width text-align-center height-title">                                 
+                              <div class="inner">
+                                <div class="next-hero-subtitle caption-timeline"><span>EXPLORING OUR WORLD OF VISUAL AND INTERACTIVE DESIGN</span></div>
+                                  <a class="page-title next-ajax-link-page" data-type="page-transition" data-centerline="ABOUT US" href="about.html">
+                                      <div class="next-hero-title primary-font-title caption-timeline"><span>Our Studio</span></div>
+                                  </a>                                        
+                              </div>               
+                          </div>
+                      </div>
+                  </div>      
+                  <!--/Page Navigation -->
+                  
+                          
+              </div>
+              <!--/Main Content --> 
+          
+          </div>
+          <!--/Main -->
+          
+          <!-- Footer -->
+          <footer class="hidden">        	
+              <div id="footer-container">
+                  
+                  <div id="backtotop" class="button-wrap left">
+                      <div class="icon-wrap parallax-wrap">
+                          <div class="button-icon parallax-element">
+                              <i class="fa-solid fa-angle-up"></i>
+                          </div>
+                      </div>
+                      <div class="button-text sticky left"><span data-hover="Back Top">Back Top</span></div> 
+                  </div>
+                  
+                  <div class="footer-middle">
+                      <div class="copyright">2024 © <a class="link" target="_blank" href="https://www.clapat.com/">ClaPat</a>. All rights reserved.</div>
+                  </div>
+                  
+                  <div class="socials-wrap">            	
+                      <div class="socials-icon"><i class="fa-solid fa-share-nodes"></i></div>
+                      <div class="socials-text">Follow Us</div>
+                      <ul class="socials">
+                          <li><span class="parallax-wrap"><a class="parallax-element" href="https://www.dribbble.com/clapat" target="_blank">Db</a></span></li>
+                          <li><span class="parallax-wrap"><a class="parallax-element" href="https://www.twitter.com/clapatdesign" target="_blank">Tw</a></span></li>
+                          <li><span class="parallax-wrap"><a class="parallax-element" href="https://www.behance.com/clapat" target="_blank">Be</a></span></li>
+                          <li><span class="parallax-wrap"><a class="parallax-element" href="https://www.facebook.com/clapat.ro" target="_blank">Fb</a></span></li>
+                          <li><span class="parallax-wrap"><a class="parallax-element" href="https://www.instagram.com/clapat.themes/">In</a></span></li>
+                      </ul>                
+                  </div>
+                  
+              </div>
+          </footer>
+          <!--/Footer -->
+      
+  
+    </div>
+      <!--/Content Scroll -->
+      
+      
+      <div id="app"></div>
+      
+      
+</div>    
+  <!--/Page Content -->
+
+</div>
 </main>
+
+
+
+
+<div class="cd-cover-layer"></div>
+<div id="magic-cursor">
+  <div id="ball">
+    <div id="ball-drag-x"></div>
+      <div id="ball-drag-y"></div>
+    <div id="ball-loader"></div>
+  </div>
+</div>
+<div id="clone-image">
+<div class="hero-translate"></div>
+</div>
+<div id="rotate-device"></div>
+
+
+
+<script src="js/jquery.min.js"></script>       
+<script src="js/gsap.min.js"></script>
+<script src="js/ScrollTrigger.min.js"></script>
+<script src="js/Flip.min.js"></script>    
+<script src="js/three.min.js"></script>
+<script src="js/imagesloaded.pkgd.min.js"></script>
+<script src="js/smooth-scrollbar.js"></script>
+<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCpK1sWi3J3EbUOkF_K4-UHzi285HyFX5M&amp;sensor=false"></script>
+
+<script src="js/clapat.js"></script>
+<script src="js/plugins.js"></script>
+
+<script src="js/common.js"></script>
+<script src="js/contact.js"></script>
+<script src="js/scripts.js"></script>
+
+<div id="awwwards" class="link" style="position: fixed; z-index: 999; transform: translateY(-50%); top: 50%;  right: 0"><a href="https://www.awwwards.com/sites/montoya-portfolio-website" target="_blank"><svg width="53.08" height="171.358"><path class="js-color-bg" fill="#E73C37" d="M0 0h53.08v171.358H0z"></path><g class="js-color-text" fill="#fff"><path d="M30.016 151.575a3.599 3.599 0 0 1-2.484 1.878l-.965-1.535c.623-.155 1.126-.401 1.506-.737.38-.337.57-.768.57-1.293 0-.4-.101-.722-.301-.966-.199-.242-.504-.365-.912-.365-.254 0-.478.083-.674.249a2.423 2.423 0 0 0-.511.62c-.146.249-.331.603-.556 1.061l-.204.424c-.293.584-.66 1.052-1.104 1.403-.443.351-1.011.525-1.703.525-.516 0-.983-.119-1.402-.357-.42-.239-.748-.575-.986-1.009s-.357-.929-.357-1.483c0-1.413.619-2.378 1.855-2.895l.979 1.535c-.721.253-1.082.706-1.082 1.359 0 .282.09.526.271.73.182.205.402.308.665.308s.495-.091.694-.271a2.51 2.51 0 0 0 .512-.657c.141-.258.324-.631.548-1.118.224-.478.454-.879.687-1.206a2.76 2.76 0 0 1 .914-.803c.375-.211.83-.315 1.367-.315.613 0 1.152.139 1.614.417.463.278.819.665 1.067 1.162s.373 1.062.373 1.695a3.545 3.545 0 0 1-.381 1.644M21.627 145.02a1.13 1.13 0 0 1-.833.336c-.332 0-.61-.111-.834-.336s-.336-.502-.336-.833c0-.332.112-.608.336-.833s.502-.337.834-.337c.331 0 .608.112.833.337s.336.501.336.833c0 .331-.111.608-.336.833m1.285-1.74h7.367v1.812h-7.367v-1.812zM29.709 140.226c-.458.479-1.135.716-2.031.716h-3.216v1.141h-1.55v-1.141H21.07l-1.139-1.812h2.98v-1.945h1.55v1.945h3.187c.438 0 .748-.081.928-.242.181-.16.27-.402.27-.723 0-.244-.057-.479-.175-.702l1.462-.424c.176.38.264.779.264 1.198-.001.849-.23 1.511-.688 1.989M29.833 134.72a3.333 3.333 0 0 1-1.433 1.169c-.579.249-1.182.373-1.805.373s-1.225-.124-1.805-.373a3.347 3.347 0 0 1-1.434-1.169c-.375-.531-.563-1.196-.563-1.995 0-.77.184-1.413.549-1.93a3.282 3.282 0 0 1 1.381-1.14 4.239 4.239 0 0 1 1.711-.365h.746v5.072a1.796 1.796 0 0 0 1.168-.49c.332-.307.496-.724.496-1.249 0-.41-.092-.753-.277-1.031-.185-.277-.473-.528-.862-.753l.542-1.462c.691.303 1.223.724 1.592 1.265.371.541.557 1.235.557 2.083 0 .798-.188 1.463-.563 1.995m-4.085-3.574c-.41.088-.746.261-1.009.519s-.394.611-.394 1.06c0 .429.135.784.408 1.067s.604.458.994.526v-3.172zM29.898 122.64c-.33.565-.783.996-1.359 1.294-.574.297-1.221.445-1.943.445-.721 0-1.369-.148-1.943-.445-.576-.298-1.029-.729-1.36-1.294s-.496-1.232-.496-2.002c0-.771.165-1.438.496-2.003a3.301 3.301 0 0 1 1.36-1.293c.574-.298 1.223-.446 1.943-.446.723 0 1.369.148 1.943.446a3.293 3.293 0 0 1 1.359 1.293c.332.564.497 1.232.497 2.003.001.769-.165 1.436-.497 2.002m-1.703-3.347c-.433-.331-.967-.497-1.6-.497s-1.167.166-1.602.497c-.433.33-.649.778-.649 1.345 0 .564.217 1.013.649 1.344.435.332.969.498 1.602.498s1.167-.166 1.6-.498c.435-.331.65-.779.65-1.344.001-.567-.215-1.015-.65-1.345M24.462 115.16v.936h-1.55v-.936h-.381c-.866 0-1.516-.227-1.95-.68-.433-.453-.649-1.074-.649-1.863 0-.556.096-1.014.291-1.374l1.463.396a2.238 2.238 0 0 0-.205.876c0 .556.307.834.92.834h.512v-1.55h1.55v1.55h5.817v1.812h-5.818zM29.709 105.543c-.458.479-1.135.717-2.031.717h-3.216v1.14h-1.55v-1.14H21.07l-1.139-1.813h2.98v-1.944h1.55v1.944h3.187c.438 0 .748-.081.928-.241.181-.16.27-.402.27-.724 0-.244-.057-.478-.175-.702l1.462-.424c.176.38.264.78.264 1.199-.001.848-.23 1.51-.688 1.988M19.931 101.104v-1.812h4.166a2.805 2.805 0 0 1-.942-.973 2.622 2.622 0 0 1-.358-1.367c0-.711.188-1.271.562-1.681.376-.409.93-.614 1.66-.614h5.262v1.813H25.66c-.449 0-.779.09-.994.27-.215.181-.321.455-.321.826 0 .292.103.57.308.833.204.263.516.478.936.644.418.166.945.249 1.578.249h3.113v1.812H19.931zM29.833 91.469a3.333 3.333 0 0 1-1.433 1.169 4.545 4.545 0 0 1-3.61 0 3.345 3.345 0 0 1-1.433-1.169c-.375-.532-.563-1.197-.563-1.995 0-.771.184-1.413.549-1.93a3.284 3.284 0 0 1 1.381-1.141 4.239 4.239 0 0 1 1.711-.365h.746v5.072c.446-.02.838-.183 1.168-.49.332-.307.496-.724.496-1.249 0-.409-.092-.753-.277-1.03-.185-.278-.473-.529-.862-.753l.542-1.462c.691.302 1.223.724 1.592 1.265.371.541.557 1.234.557 2.083-.001.797-.189 1.463-.564 1.995m-4.085-3.574c-.41.088-.746.261-1.009.519-.263.259-.394.611-.394 1.061 0 .428.135.784.408 1.066s.604.458.994.526v-3.172zM20.047 80.572V77.37c0-.847.187-1.631.557-2.353.369-.721.938-1.303 1.703-1.746.764-.444 1.717-.665 2.857-.665 1.139 0 2.092.221 2.857.665.764.443 1.332 1.025 1.701 1.746.371.722.557 1.506.557 2.353v3.202H20.047zm8.478-2.601c0-.975-.251-1.791-.753-2.448-.501-.658-1.372-.987-2.608-.987-1.238 0-2.107.329-2.609.987-.502.657-.754 1.474-.754 2.448v.701h6.725v-.701zM29.812 70.685c-.39.419-.94.628-1.651.628-.731 0-1.315-.277-1.754-.833s-.658-1.306-.658-2.251v-1.286h-.321c-.36 0-.631.122-.812.365s-.271.551-.271.921c0 .633.282 1.059.849 1.271l-.352 1.535a2.326 2.326 0 0 1-1.484-.943c-.374-.512-.562-1.133-.562-1.863 0-.984.261-1.747.782-2.288.521-.54 1.289-.812 2.302-.812h4.399v1.492l-.936.19c.702.573 1.052 1.33 1.052 2.265.001.653-.194 1.19-.583 1.609m-1.382-3.246c-.277-.332-.645-.497-1.104-.497h-.146v1.213c0 .4.078.709.233.929.156.219.395.328.717.328a.655.655 0 0 0 .519-.227c.132-.151.197-.348.197-.592a1.742 1.742 0 0 0-.416-1.154M29.812 61.639l-6.9 2.674v-1.827l4.619-1.711-4.619-1.607v-1.813l10.349 3.801v1.754zM35.481 17.006l-4.782 14.969h-3.266l-2.584-9.682-2.584 9.682h-3.267l-4.783-14.969h3.713l2.674 10.275 2.525-10.275h3.444l2.525 10.275 2.674-10.275zM37.979 27.163c1.426 0 2.496 1.069 2.496 2.495 0 1.425-1.07 2.495-2.496 2.495s-2.494-1.07-2.494-2.495c-.001-1.426 1.068-2.495 2.494-2.495"></path></g></svg></a></div>
+
+
 
 <!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * -->
 <!-- * * * * * * * * * * * The content above * * * * * * * * * * * * -->
